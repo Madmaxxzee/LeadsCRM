@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Wood Views V</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.css" />
+  <link rel="stylesheet" href="/templates/template4/style4.css" />
+  <link rel="icon" href="/media/104/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <section class="hero-video fade-in">
+    <video autoplay muted loop playsinline id="heroVideo">
+      <source src="/media/104/video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay">
+      <button class="discover-btn" onclick="scrollToForm()">Discover More</button>
+      <img src="/media/104/Bottom.png" class="bottom-logo" />
+    </div>
+  </section>
+  
+  <section class="intro container-fluid fade-in">
+    <div class="row">
+      <div class="col-md-6 intro-left">DISCOVER GOLDEN<br>WOOD VIEWS V</div>
+      <div class="col-md-6 intro-right">
+        Golden Wood Views V offers a luxurious living experience in the heart of Jumeirah Village Circle...
+      </div>
+    </div>
+  </section>
+
+  <section class="downloads-section text-center fade-in">
+    <h5>Download Project Details</h5>
+    <div class="btn-group mt-3">
+      <button class="btn brochure-btn" onclick="openDownloadModal('brochure')">Download Brochure</button>
+      <button class="btn factsheet-btn" onclick="openDownloadModal('factsheet')">Download Factsheet</button>
+    </div>
+  </section>
+  
+  <!-- Download Modal Form -->
+  <div class="modal" id="downloadModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDownloadModal()">&times;</span>
+      <h4>Register to Download</h4>
+      <form id="downloadForm">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" id="downloadPhone" name="phone" placeholder="Phone Number" required />
+        <input type="hidden" name="projectId" value="104" />
+        <input type="hidden" id="downloadType" name="type" />
+        <button type="submit">Submit & Download</button>
+        <p id="downloadStatus"></p>
+      </form>
+    </div>
+  </div>
+    
+  <section class="photo-highlight fade-in">
+    <img src="/media/104/1.png" alt="Golden Woods V" />
+    <p>A HARMONIOUS BLEND OF NATURE AND MODERNITY.</p>
+  </section>
+  
+  <section class="gallery-section container fade-in">
+    <div class="main-gallery-img">
+      <img id="mainPreview" src="/media/104/Gallery/1.jpg" />
+    </div>
+    <div class="gallery-thumbnails d-flex flex-wrap mt-3" id="galleryThumbs"></div>
+  </section>
+  
+  <section class="developer-location container fade-in">
+    <div class="row">
+      <div class="col-md-6 developer-info">
+        <h4>The Developer</h4>
+        <p>Golden Woods Development, established in 2013, is a leading real estate company...</p>
+      </div>
+      <div class="col-md-6 location-map">
+        <img src="/media/104/location_map.png" alt="Map" />
+      </div>
+    </div>
+  </section>
+  
+  <section class="register-interest container fade-in" id="registerForm">
+    <h4>Register Your Interest</h4>
+    <form id="leadForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+      <input type="hidden" name="projectId" value="104" />
+      <button type="submit">Submit</button>
+    </form>
+    <p class="form-status" id="formStatus"></p>
+  </section>  
+
+  <div class="sticky-cta">
+    <button onclick="scrollToForm()">Register Your Interest</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+  <script src="/templates/template4/script4.js"></script>
+</body>
+</html>

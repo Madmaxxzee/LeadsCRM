@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amirah – Bonds Avenue</title>
+  <link rel="icon" href="/media/103/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/templates/template3/style3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"/>
+</head>
+<body>
+
+  <header class="hero">
+    <img src="/media/103/hero.jpg" alt="Hero Image" class="hero-image"/>
+    <div class="overlay">
+      <h1 id="projectTitle" class="main-heading">Amirah – Bonds Avenue</h1>
+      <p id="projectSubtitle" class="sub-heading">Luxury Awaits on Dubai Islands</p>
+    </div>
+    <div class="payment-btn">
+      <button id="downloadPaymentBtn">Download Payment Plan</button>
+    </div>
+  </header>
+
+  <section class="description container">
+    <p id="projectDescription">
+      A premium development located in Dubai Islands with unmatched luxury, finishes, and incentives.
+    </p>
+  </section>
+
+  <section class="unit-types container">
+    <h2>Unit Types</h2>
+    <div id="unitGrid" class="unit-grid"></div>
+    <div class="download-buttons">
+      <button id="downloadBrochureBtn">Download Brochure</button>
+      <button id="downloadFloorplanBtn">Download Floor Plan</button>
+    </div>
+  </section>
+
+  <section class="gallery container">
+    <h2>Gallery</h2>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </section>
+
+  <section class="amenities container">
+    <h2>Amenities</h2>
+    <div id="amenitiesGrid" class="amenities-grid"></div>
+  </section>
+
+  <section class="location container">
+    <h2>Location</h2>
+    <img src="/media/103/location_map.jpg" alt="Location Map" class="location-map"/>
+  </section>
+
+  <section class="form-section container" id="leadForm">
+    <h2>Register Your Interest</h2>
+    <form id="registerForm">
+      <div class="row">
+        <input type="text" id="firstName" placeholder="First Name" required/>
+        <input type="text" id="lastName" placeholder="Last Name" required/>
+      </div>
+      <div class="row">
+        <input type="email" id="email" placeholder="Email" required/>
+        <input type="tel" id="phone" placeholder="Phone Number" required/>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <!-- Lead Capture Modal -->
+  <div id="downloadModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Fill in your details to proceed</h3>
+      <form id="modalForm">
+        <input type="text" id="modalName" placeholder="Full Name" required />
+        <input type="email" id="modalEmail" placeholder="Email" required />
+        <input type="tel" id="modalPhone" placeholder="Phone Number" required />
+        <button type="submit" class="submit-btn">Download</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="sticky-cta">
+    <button id="ctaBtn">Register Your Interest</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="/templates/template3/script3.js"></script>
+</body>
+</html>

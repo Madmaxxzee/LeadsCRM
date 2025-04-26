@@ -1,0 +1,19 @@
+{
+  "name": "real-estate-landing",
+  "version": "1.0.0",
+  "description": "Landing Pages and CRM for Real Estate Lead Collection",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["real-estate", "landing-pages", "CRM"],
+  "author": "Boss",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.15.0"
+  }
+}

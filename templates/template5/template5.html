@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa Vista Residence by Golden Woods</title>
+  <link rel="icon" href="/media/105/favicon.ico" type="image/x-icon" />
+
+  <!-- Bootstrap & Input -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.css" />
+
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="/templates/template5/style5.css?v=3" />
+
+  <!-- Local PDF.js -->
+  <script src="/templates/template5/pdf.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "/templates/template5/pdf.worker.js";
+  </script>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="pdf-container">
+    <div id="topCTA" class="top-downloads">
+      <button class="download-btn" data-type="brochure">BROCHURE ⬇</button>
+      <button class="download-btn" data-type="factsheet">FACTSHEET ⬇</button>
+    </div>
+    <div id="pdfContainer"></div>
+  </section>
+
+  <!-- Modal Form -->
+  <div class="modal" id="downloadModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h2>LIKE WHAT YOU SEE?</h2>
+      <p>REGISTER NOW TO GET YOUR FREE CONSULTATION</p>
+      <form id="downloadForm">
+        <div class="form-grid">
+          <input type="text" name="firstName" placeholder="FIRST NAME *" required />
+          <input type="text" name="lastName" placeholder="LAST NAME *" required />
+          <input type="email" name="email" placeholder="EMAIL *" required />
+          <div class="phone-group">
+            <input id="countryCode" type="text" value="+971" readonly />
+            <input type="tel" name="phone" placeholder="XX XXX XXXX" required />
+          </div>
+          <select name="propertyType" required>
+            <option value="">Select Property Type *</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+          </select>
+          <select name="budget" required>
+            <option value="">Budget *</option>
+            <option value="Below 1M">Below 1M</option>
+            <option value="1M - 2M">1M - 2M</option>
+            <option value="2M+">2M+</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-modal-btn">SUBMIT</button>
+      </form>
+      <p id="formFeedback"></p>
+    </div>
+  </div>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <button onclick="scrollToForm()">Register Your Interest</button>
+  </div>
+
+  <!-- Hidden regular form for main lead section -->
+  <section class="register-interest" id="registerForm">
+    <h4>Register Your Interest</h4>
+    <form id="leadForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+      <input type="hidden" name="projectId" value="105" />
+      <button type="submit">Submit</button>
+    </form>
+    <p class="form-status" id="formStatus"></p>
+    <img src="/media/105/Bottom.png" class="bottom-logo" />
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+  <script src="/templates/template5/script5.js"></script>
+</body>
+</html>

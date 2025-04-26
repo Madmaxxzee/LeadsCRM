@@ -1,0 +1,8 @@
+gymnasium.png|Gymnasium
+infinity_pool.png|Infinity Pool
+kids_play_area.png|Kids Play Area
+mini_golf.png|Mini Golf
+outdoor_mini_cinema.jpg|Outdoor Mini Cinema
+padel_court.png|Padel Court
+reception_lounge.png|Reception Lounge
+sauna.png|Sauna

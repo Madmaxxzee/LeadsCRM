@@ -1,0 +1,280 @@
+/* Reset & Base */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn-gold {
+  background-color: #c8a165;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-gold:hover {
+  background-color: #b08b4f;
+  color: #fff;
+}
+
+.btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Hero Section Template 2 */
+.template2-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-logo {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+/* Gallery */
+#galleryGrid {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-behavior: smooth;
+}
+
+#galleryGrid img {
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Layout Section */
+#layout-section img {
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Amenities Scroll */
+.amenities-scroll-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 1rem;
+}
+
+.amenities-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.amenity-pill {
+  position: relative;
+  flex: 0 0 auto;
+  width: 200px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 14px;
+  padding: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.amenity-pill:hover {
+  transform: scale(1.05);
+}
+
+.amenity-pill video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.amenity-pill span {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #c8a165;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.scroll-btn.left {
+  left: 0.5rem;
+}
+
+.scroll-btn.right {
+  right: 0.5rem;
+}
+
+/* Nearby Tiles */
+.nearby-tile {
+  min-width: 150px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+/* FAQ */
+.accordion-button:not(.collapsed) {
+  background-color: #c8a165;
+  color: white;
+}
+
+/* Map */
+#google-map {
+  height: 400px;
+  width: 100%;
+}
+
+/* Forms */
+input, select {
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  border-color: #c8a165;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200, 161, 101, 0.3);
+}
+
+.form-success {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal-box input, .modal-box button {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding: 1rem;
+  }
+
+  .hero-logo {
+    max-width: 120px;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+
+  .amenity-pill {
+    width: 150px;
+    height: 100px;
+    font-size: 12px;
+  }
+}

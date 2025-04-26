@@ -1,0 +1,18 @@
+{
+    "id": 104,
+    "template": "template4",
+    "name": "Golden Wood Views V",
+    "location": "Jumeirah Village Circle",
+    "developer": "Golden Woods Development",
+    "heroVideo": "video.mp4",
+    "logoOverlay": "Bottom.png",
+    "descriptionImage": "1.png",
+    "descriptionText": "Golden Wood Views V offers a luxurious living experience in the heart of Jumeirah Village Circle, featuring 160 elegantly designed 1, 2, and 3-bedroom apartments and duplexes across a ground-plus-24-story building. Combining modern sophistication with serene comfort, this development provides a harmonious blend of style and functionality. Perfectly located, it offers easy access to key destinations, making it an ideal choice for refined living in a vibrant community.",
+    "quote": "A HARMONIOUS BLEND OF NATURE AND MODERNITY.",
+    "locationImage": "location_map.png",
+    "brochure": "Views V Brochure.pdf",
+    "paymentPlanImage": "PaymentPlan.png",
+    "gallery": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"],
+    "favicon": "favicon.ico"
+  }
+  

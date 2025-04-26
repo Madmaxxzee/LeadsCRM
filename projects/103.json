@@ -1,0 +1,60 @@
+{
+  "id": "103",
+  "template": "template3",
+  "title": "Amirah – Bonds Avenue",
+  "tagline": "Luxury Awaits on Dubai Islands",
+  "description": "Amirah – Bonds Avenue is a master-crafted residential gem located on the serene Dubai Islands. Designed to blend stunning vistas with opulent finishes, it offers water views, skyline panoramas, and unmatched interior experiences. With exclusive amenities, smart-home features, and premium materials, Bonds Avenue is a rare opportunity to invest in boutique elegance by the water.",
+  "location": {
+    "lat": 25.303, 
+    "lng": 55.327
+  },
+  "hero": "media/103/Hero 1.jpg",
+  "gallery": [
+    "exterior_day_pool.jpg",
+    "exterior_day.jpg",
+    "exterior_night.jpg",
+    "luxury_bathroom.jpg",
+    "modern_kitchen.jpg",
+    "master_bedroom.png",
+    "guest_bedroom.png",
+    "living_room_1.png",
+    "dining_area.jpg",
+    "terrace_view.jpg",
+    "luxury_bathroom_2.jpg",
+    "rooftop_view.jpg",
+    "gym.png"
+  ],
+  "unit_types": [
+    {
+      "title": "1BHK",
+      "price": "1.774M AED",
+      "image": "layouts/1bhk_layout.png"
+    },
+    {
+      "title": "2BHK",
+      "price": "2.292M AED",
+      "image": "layouts/2bhk_layout.png"
+    },
+    {
+      "title": "3BHK",
+      "price": "2.898M AED",
+      "image": "layouts/3bhk_layout.png"
+    },
+    {
+      "title": "Townhouse (3BHK)",
+      "price": "5.6M AED",
+      "image": "layouts/townhouse_layout.png"
+    },
+    {
+      "title": "Penthouse (4BHK)",
+      "price": "9.9M AED",
+      "image": "layouts/penthouse_layout.png"
+    }
+  ],
+  "downloads": {
+    "brochure": "downloads/brochure.pdf",
+    "floorplans": "downloads/floorplans.pdf",
+    "paymentplan": "downloads/paymentplan.pdf"
+  },
+  "amenities_file": "media/103/amenities.txt"
+}

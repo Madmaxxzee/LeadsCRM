@@ -1,0 +1,10 @@
+[
+    { "stage": "Initial Payment", "amount": "10%", "description": "On Booking" },
+    { "stage": "Down Payment", "amount": "10%", "description": "Within 30 Days of Booking" },
+    { "stage": "1st Installment", "amount": "7.5%", "description": "6 Months from SPA" },
+    { "stage": "2nd Installment", "amount": "7.5%", "description": "12 Months from SPA" },
+    { "stage": "3rd Installment", "amount": "7.5%", "description": "18 Months from SPA" },
+    { "stage": "4th Installment", "amount": "7.5%", "description": "24 Months from SPA" },
+    { "stage": "Final Installment", "amount": "50%", "description": "On Handover (Q3 2028)" }
+  ]
+  

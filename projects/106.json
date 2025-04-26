@@ -1,0 +1,92 @@
+{
+  "id": "106",
+  "template": "template2",
+  "title": "Mayfair Nexus",
+  "tagline": "Crafted with Luxury, Rooted in Serenity.",
+  "description": "Mayfair Nexus blends timeless elegance with contemporary comfort, nestled in the heart of Wadi Al Safa 7. With luxury at its core and boutique living as its soul, this is your gateway to serenity.",
+  "unit_types": [
+    {
+      "title": "1 Bedroom Apartment",
+      "image": "layouts/1bed_layout.jpg",
+      "description": "Starting at 1.25M AED — 787 to 995 Sqft"
+    },
+    {
+      "title": "2 Bedroom Apartment",
+      "image": "layouts/2bed_layout.jpg",
+      "description": "Starting from 1.71M AED — 1,063 to 1,133 Sqft"
+    },
+    {
+      "title": "3 Bedroom Apartment",
+      "image": "layouts/3bed_layout.jpg",
+      "description": "Starting from 2.64M AED — 1,708 to 1,828 Sqft"
+    }
+  ],
+  "amenities": [
+    "Fully Equipped Gym",
+    "Zen Garden",
+    "Open Air Yoga Park",
+    "Paddle Court",
+    "Pool Deck Sitting",
+    "Indoor Kids Play Area",
+    "Kids Outdoor Park",
+    "Mini Golf Course",
+    "Co-working Lounge"
+  ],
+  "amenity_videos": {
+    "Fully Equipped Gym": "fully_equipped_gym.mp4",
+    "Zen Garden": "low_view_inside4.mp4",
+    "Open Air Yoga Park": "open_air_yoga_park.mp4",
+    "Paddle Court": "low_view_inside3.mp4",
+    "Pool Deck Sitting": "pool_deck_sitting.mp4",
+    "Indoor Kids Play Area": "indoor_kids_play_area.mp4",
+    "Kids Outdoor Park": "kids_outdoor_park.mp4",
+    "Mini Golf Course": "low_view_inside_fountain.mp4",
+    "Co-working Lounge": "co_working_lounge.mp4"
+  },
+  "nearby": [
+    { "place": "Dubai Mall", "time": "12 mins away" },
+    { "place": "Business Bay", "time": "15 mins away" },
+    { "place": "Burj Khalifa", "time": "18 mins away" },
+    { "place": "Dubai Airport", "time": "25 mins away" }
+  ],
+  "location": {
+    "lat": 25.0963564,
+    "lng": 55.282398
+  },
+  "faqs": [
+    {
+      "question": "Who is the developer of Mayfair Nexus?",
+      "answer": "Mayfair Nexus is developed by Seven Mayfair Real Estate Development."
+    },
+    {
+      "question": "Where is Mayfair Nexus located?",
+      "answer": "It is located in Wadi Al Safa 7, Dubai — with seamless connectivity to Dubai’s key landmarks."
+    },
+    {
+      "question": "When is the expected handover?",
+      "answer": "The project is expected to be handed over by Q4 2028."
+    },
+    {
+      "question": "What is the payment plan?",
+      "answer": "50% during construction, 20% on handover, and 30% post-handover."
+    }
+  ],
+  "gallery": [
+    "Apartment_1.jpg",
+    "Apartment_2.jpg",
+    "Apartment_3.jpg",
+    "Apartment_4.jpg",
+    "Apartment_5.jpg",
+    "Apartment_6.jpg",
+    "bridge_view1.jpg",
+    "bridge_view2.jpg",
+    "closeup_view.jpg",
+    "clubhouse_reception1.jpg",
+    "clubhouse_reception2.jpg",
+    "clubhouse_reception3.jpg",
+    "lounge1.jpg",
+    "lounge2.jpg",
+    "spa1.jpg",
+    "spa2.jpg"
+  ]
+}
