@@ -1,3 +1,12 @@
 *.mp4
 node_modules/
 .DS_Store
+
+
+git rm --cached "media/104/video.mp4"
+git rm --cached "media/106/videos/apartment2.mp4"
+git rm --cached "media/106/videos/top_view_day2.mp4"
+git rm --cached "media/106/videos/top_view_inside1.mp4"
+git rm --cached "media/106/videos/top_view_swimming_pool.mp4"
+git rm --cached "media/106/videos/top_view_swimming_pool2.mp4"
+git rm --cached "media/999/Studio Apartment/video.mp4"
