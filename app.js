@@ -192,30 +192,44 @@ app.get("/api/residences/:projectId", (req, res) => {
   res.json(folders);
 });
 
-// ✅ Updated Template Routing Logic
+// ✅ Updated: Serve project page based on MongoDB, fallback to static JSON
 app.get("/", async (req, res) => {
-  const projectId = req.query.projectId; // << correct param
+  const projectId = req.query.id;
   if (!projectId) return res.status(400).send("Missing project ID");
 
+  const client = new MongoClient(mongoUrl);
+
   try {
-    const client = new MongoClient(mongoUrl);
     await client.connect();
-    const project = await client.db(dbName).collection("projects").findOne({ projectId: projectId });
-    await client.close();
+    const projectData = await client.db("leadscrm").collection("projects").findOne({ projectId: projectId });
 
-    if (!project) return res.status(404).send("Project not found");
+    if (!projectData) {
+      // Fallback: Try static JSON in /projects/
+      const projectPath = path.join(__dirname, "projects", `${projectId}.json`);
+      if (!fs.existsSync(projectPath)) return res.status(404).send("Project not found in database or static files");
 
-    const template = project.template || "template1";
+      const staticData = JSON.parse(fs.readFileSync(projectPath, "utf8"));
+      const template = staticData.template || "template1";
+      const templateFile = `${template}.html`;
+      const templatePath = path.join(__dirname, "templates", template, templateFile);
+
+      if (!fs.existsSync(templatePath)) return res.status(404).send("Template not found");
+      return res.sendFile(templatePath);
+    }
+
+    const template = projectData.template || "template1";
     const templateFile = `${template}.html`;
-    const templateDir = path.join(__dirname, "templates", template);
-    const templatePath = path.join(templateDir, templateFile);
+    const templatePath = path.join(__dirname, "templates", template, templateFile);
 
     if (!fs.existsSync(templatePath)) return res.status(404).send("Template not found");
 
     res.sendFile(templatePath);
+
   } catch (err) {
     console.error("Error loading project:", err);
     res.status(500).send("Internal server error");
+  } finally {
+    await client.close();
   }
 });
 
