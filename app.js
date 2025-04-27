@@ -193,22 +193,30 @@ app.get("/api/residences/:projectId", (req, res) => {
 });
 
 // ✅ Updated Template Routing Logic
-app.get("/", (req, res) => {
-  const projectId = req.query.id;
+app.get("/", async (req, res) => {
+  const projectId = req.query.projectId; // << correct param
   if (!projectId) return res.status(400).send("Missing project ID");
 
-  const projectPath = path.join(__dirname, "projects", `${projectId}.json`);
-  if (!fs.existsSync(projectPath)) return res.status(404).send("Project not found");
+  try {
+    const client = new MongoClient(mongoUrl);
+    await client.connect();
+    const project = await client.db(dbName).collection("projects").findOne({ projectId: projectId });
+    await client.close();
 
-  const projectData = JSON.parse(fs.readFileSync(projectPath, "utf8"));
-  const template = projectData.template || "template1";
-  const templateFile = `${template}.html`;
-  const templateDir = path.join(__dirname, "templates", template);
-  const templatePath = path.join(templateDir, templateFile);
+    if (!project) return res.status(404).send("Project not found");
 
-  if (!fs.existsSync(templatePath)) return res.status(404).send("Template not found");
+    const template = project.template || "template1";
+    const templateFile = `${template}.html`;
+    const templateDir = path.join(__dirname, "templates", template);
+    const templatePath = path.join(templateDir, templateFile);
 
-  res.sendFile(templatePath);
+    if (!fs.existsSync(templatePath)) return res.status(404).send("Template not found");
+
+    res.sendFile(templatePath);
+  } catch (err) {
+    console.error("Error loading project:", err);
+    res.status(500).send("Internal server error");
+  }
 });
 
 // Static File Routes
