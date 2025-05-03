@@ -5,13 +5,21 @@ document.addEventListener("DOMContentLoaded", async function () {
   try {
     const res = await fetch(`/projects/${projectId}.json`);
     const data = await res.json();
-    const template = data.template || "1";
+    const template = data.template || "template1";
     document.body.classList.add(`template-${template}`);
-
+    document
+      .getElementById("enquireBtn")
+      .addEventListener("click", function () {
+        const form = document.getElementById("registerForm");
+        if (form) {
+          form.scrollIntoView({ behavior: "smooth" });
+        }
+      });
     // === TEMPLATE 2 ===
-    if (template === "2") {
+    if (template === "template2") {
       document.getElementById("projectTitle").textContent = data.title || "";
-      document.getElementById("projectTagline").textContent = data.tagline || "";
+      document.getElementById("projectTagline").textContent =
+        data.tagline || "";
 
       const video = document.getElementById("heroVideo");
       video.querySelector("source").src = `media/${projectId}/Mayfair.mp4`;
@@ -26,24 +34,23 @@ document.addEventListener("DOMContentLoaded", async function () {
       // GALLERY
       const galleryGrid = document.getElementById("galleryGrid");
       if (galleryGrid && data.gallery?.length) {
-        data.gallery.forEach(img => {
-          const div = document.createElement("div");
-          div.innerHTML = `<img src="media/${projectId}/gallery/${img}" class="img-fluid rounded gallery-img" style="max-height:400px;" />`;
-          galleryGrid.appendChild(div);
-        });
+        data.gallery.forEach((img) => {
+          const col = document.createElement("div");
+          col.className = "col";
 
-        setInterval(() => {
-          galleryGrid.scrollBy({ left: 300, behavior: "smooth" });
-        }, 5000);
+          col.innerHTML = `
+      <div class="card h-100">
+        <img src="media/${projectId}/gallery/${img}" class="card-img-top img-fluid rounded gallery-img" style="max-height:400px; object-fit:cover;" />
+      </div>
+    `;
 
-        galleryGrid.addEventListener("mousemove", e => {
-          galleryGrid.scrollLeft += (e.movementX > 0 ? 5 : -5);
+          galleryGrid.appendChild(col);
         });
       }
 
       // UNIT TYPES
       const layoutSection = document.getElementById("layout-section");
-      data.unit_types?.forEach(unit => {
+      data.unit_types?.forEach((unit) => {
         const col = document.createElement("div");
         col.className = "col-md-4 text-center mb-4";
         col.innerHTML = `
@@ -55,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       // AMENITIES
       const amenitiesScroll = document.getElementById("amenitiesScroll");
-      data.amenities?.forEach(label => {
+      data.amenities?.forEach((label) => {
         const videoName = label.toLowerCase().replace(/\s+/g, "_") + ".mp4";
         const path = `media/${projectId}/videos/${videoName}`;
         const block = document.createElement("div");
@@ -63,18 +70,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         block.innerHTML = `
           <video src="${path}" muted loop playsinline class="amenity-video"></video>
           <span>${label}</span>`;
-        block.addEventListener("mouseenter", () => block.querySelector("video").play());
-        block.addEventListener("mouseleave", () => block.querySelector("video").pause());
+        block.addEventListener("mouseenter", () =>
+          block.querySelector("video").play()
+        );
+        block.addEventListener("mouseleave", () =>
+          block.querySelector("video").pause()
+        );
         amenitiesScroll.appendChild(block);
       });
 
-      amenitiesScroll.addEventListener("mousemove", e => {
-        amenitiesScroll.scrollLeft += (e.movementX > 0 ? 5 : -5);
+      amenitiesScroll.addEventListener("mousemove", (e) => {
+        amenitiesScroll.scrollLeft += e.movementX > 0 ? 5 : -5;
       });
 
       // NEARBY
       const nearby = document.getElementById("nearbySection");
-      data.nearby?.forEach(loc => {
+      data.nearby?.forEach((loc) => {
         const div = document.createElement("div");
         div.className = "border rounded p-3 m-2 bg-light nearby-tile";
         div.innerHTML = `<strong>${loc.place}</strong><br><small>${loc.time}</small>`;
@@ -89,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         window.initMap = () => {
           new google.maps.Map(document.getElementById("google-map"), {
             center: { lat: data.location.lat, lng: data.location.lng },
-            zoom: 14
+            zoom: 14,
           });
         };
         document.body.appendChild(script);
@@ -116,16 +127,22 @@ document.addEventListener("DOMContentLoaded", async function () {
       document.getElementById("downloadBtn")?.addEventListener("click", () => {
         document.getElementById("brochureModal")?.classList.add("active");
       });
-
-      // Floor Plan Alert
-      document.getElementById("downloadFloorPlan")?.addEventListener("click", () => {
-        alert("Floor Plan will be emailed to you after registration.");
+      document.getElementById("closeModalBtn")?.addEventListener("click", () => {
+        document.getElementById("brochureModal")?.classList.remove("active");
       });
+      // Floor Plan Alert
+      document
+        .getElementById("downloadFloorPlan")
+        ?.addEventListener("click", () => {
+          alert("Floor Plan will be emailed to you after registration.");
+        });
 
       // Payment Plan Popup
-      document.getElementById("downloadPaymentPlan")?.addEventListener("click", () => {
-        document.getElementById("paymentPlanModal")?.classList.add("active");
-      });
+      document
+        .getElementById("downloadPaymentPlan")
+        ?.addEventListener("click", () => {
+          document.getElementById("paymentPlanModal")?.classList.add("active");
+        });
     }
 
     // === FORM HANDLING ===
@@ -137,21 +154,23 @@ document.addEventListener("DOMContentLoaded", async function () {
       const spinner = spinnerId ? document.getElementById(spinnerId) : null;
       const btn = form.querySelector("button");
 
-      form.addEventListener("submit", async e => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
         let isValid = true;
         const payload = {};
-
-        fields.forEach(id => {
+        fields.forEach((id) => {
           const input = document.getElementById(id);
           if (!input.value.trim()) {
             input.classList.add("input-error");
             isValid = false;
           } else {
             input.classList.remove("input-error");
-            if (id.includes("name")) payload.name = input.value.trim();
-            if (id.includes("email")) payload.email = input.value.trim();
-            if (id.includes("phone")) payload.phone = input.value.trim();
+            if (id.includes("name") || id.includes("nameBrochure"))
+              payload.name = input.value.trim();
+            if (id.includes("registerEmail") || id.includes("emailBrochure"))
+              payload.email = input.value.trim();
+            if (id.includes("registerPhone") || id.includes("phoneBrochure"))
+              payload.phone = input.value.trim();
           }
         });
 
@@ -164,7 +183,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const res = await fetch("/submit-lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(payload),
         });
 
         if (spinner) spinner.classList.add("d-none");
@@ -173,26 +192,39 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (res.ok) {
           form.reset();
           success.style.display = "block";
-          setTimeout(() => success.style.display = "none", 3000);
+          setTimeout(() => (success.style.display = "none"), 3000);
           if (typeof onSuccess === "function") onSuccess();
         }
       });
     }
 
-    handleForm("brochureForm", "brochureSuccess", "brochureSpinner", ["nameBrochure", "emailBrochure", "phoneBrochure"], () => {
-      const a = document.createElement("a");
-      a.href = `media/${projectId}/106_brochure.pdf`;
-      a.download = `106_brochure.pdf`;
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    });
+    handleForm(
+      "brochureForm",
+      "brochureSuccess",
+      "brochureSpinner",
+      ["nameBrochure", "emailBrochure", "phoneBrochure"],
+      () => {
+        const a = document.createElement("a");
+        a.href = `media/${projectId}/106_brochure.pdf`;
+        a.download = `106_brochure.pdf`;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => {
+          document.getElementById("brochureModal")?.classList.remove("active");
+        }, 2000);
+      }
+    );
 
-    handleForm("registerForm", "registerSuccess", null, ["firstName", "lastName", "registerEmail", "registerPhone"]);
+    handleForm("registerForm", "registerSuccess", null, [
+      "name",
+      "registerEmail",
+      "registerPhone",
+    ]);
 
     // Modal Closing
-    document.querySelectorAll(".modal-overlay").forEach(overlay => {
+    document.querySelectorAll(".modal-overlay").forEach((overlay) => {
       overlay.addEventListener("click", function (e) {
         if (e.target === this) this.classList.remove("active");
       });
@@ -201,14 +233,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Phone Input Intl
     intlTelInput(document.querySelector("#phoneBrochure"), {
       initialCountry: "ae",
-      geoIpLookup: cb => cb("AE")
+      geoIpLookup: (cb) => cb("AE"),
     });
 
     intlTelInput(document.querySelector("#registerPhone"), {
       initialCountry: "ae",
-      geoIpLookup: cb => cb("AE")
+      geoIpLookup: (cb) => cb("AE"),
     });
-
   } catch (err) {
     console.error("Landing Init Error:", err);
   }

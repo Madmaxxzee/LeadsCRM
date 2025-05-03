@@ -1,67 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zyra Vista</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title id="pageTitle">Zyra Vista</title>
 
-  <!-- CDN Styles -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Root-based local styles -->
-  <link rel="stylesheet" href="/templates/template1/style1.css" />
-</head>
-<body class="template-1">
-  <div class="hero-section text-white text-center d-flex align-items-center justify-content-center">
-    <div>
-      <h1 id="projectTitle" class="hero-title mb-4"></h1>
-      <button class="btn btn-outline-light me-2" id="downloadBtn">Download Brochure</button>
-      <button class="btn btn-outline-light" id="enquireBtn">Enquire Now</button>
-    </div>
-  </div>
+    <!-- intl-tel-input CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+      rel="stylesheet"
+    />
 
-  <div id="project-description" class="container py-4"></div>
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="/templates/template1/style1.css" />
+  </head>
+  <body>
+    <!-- HERO -->
+    <section class="hero">
+      <video id="heroVideo" autoplay muted loop playsinline>
+        <source src="" type="video/mp4" />
+      </video>
+      <img id="heroImg" src="" alt="Hero fallback" />
+      <div class="overlay"></div>
+      <div class="container">
+        <h1 id="projectTitle" class="hero-title"></h1>
+        <p id="projectSub" class="hero-sub"></p>
+        <div class="hero-buttons">
+          <a id="btnBrochure" class="btn btn-outline-light btn-sm" download
+            >Download Brochure</a
+          >
+          <a id="btnPaymentplan" class="btn btn-outline-light btn-sm" download>
+            Payment Plan
+          </a>
+          <button id="btnFactsheet" class="btn btn-outline-light btn-sm">
+            Factsheet
+          </button>
+          <button id="btnCallback" class="btn btn-light btn-sm text-dark">
+            Request Callback
+          </button>
+        </div>
+       
+      </div>
+      <img id="projectLogo" class="hero-logo" src="" alt="logo" />
+    </section>
 
-  <!-- Brochure Modal -->
-  <div id="brochureModal" class="modal-overlay">
-    <div class="modal-box">
-      <button class="close-modal">x</button>
-      <h4>Download Brochure</h4>
-      <form id="brochureForm">
-        <input type="text" id="nameBrochure" placeholder="Full Name" required>
-        <input type="email" id="emailBrochure" placeholder="Email" required>
-        <input type="tel" id="phoneBrochure" placeholder="Phone Number" required>
-        <button type="submit">
-          <span class="spinner-border spinner-border-sm d-none" id="brochureSpinner" role="status"></span>
-          <span>Download</span>
-        </button>
-        <p class="form-success" id="brochureSuccess">Submitted successfully!</p>
+    <!-- ABOUT -->
+    <section class="container py-4">
+      <h2>About</h2>
+      <p id="projectDesc"></p>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="container py-4">
+      <h2>Gallery</h2>
+      <div id="gallery" class="scrolling-gallery"></div>
+    </section>
+
+    <!-- UNITS -->
+    <section class="container py-4">
+      <h2>Type of Residences</h2>
+      <div id="units" class="row"></div>
+    </section>
+
+    <!-- AMENITIES -->
+    <section class="container py-4">
+      <h2>Amenities</h2>
+      <div id="amenities" class="amenities"></div>
+    </section>
+
+    <!-- MAP -->
+    <section class="container py-4">
+      <h2>Location</h2>
+      <div id="map" class="map-container"></div>
+    </section>
+
+    <!-- CALLBACK FORM -->
+    <section class="container py-4">
+      <h2>Request a Callback</h2>
+      <form id="callbackForm" class="row g-2 align-items-center">
+        <div class="col-md-3">
+          <input
+            id="name"
+            class="form-control"
+            placeholder="First name*"
+            required
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            placeholder="Email*"
+            required
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            id="phone"
+            class="form-control"
+            placeholder="Mobile number*"
+            required
+          />
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-success w-100">Submit</button>
+        </div>
+        <div
+          id="successMsg"
+          class="form-success col-12 mt-2"
+          style="display: none"
+        >
+          Thank you! We’ll contact you soon.
+        </div>
       </form>
-    </div>
-  </div>
+    </section>
 
-  <!-- Enquire Modal -->
-  <div id="enquireModal" class="modal-overlay">
-    <div class="modal-box">
-      <button class="close-modal">x</button>
-      <h4>Register Your Interest</h4>
-      <form id="enquireForm">
-        <input type="text" id="nameEnquiry" placeholder="Full Name" required>
-        <input type="email" id="emailEnquiry" placeholder="Email" required>
-        <input type="tel" id="phoneEnquiry" placeholder="Phone Number" required>
-        <button type="submit">
-          <span class="spinner-border spinner-border-sm d-none" id="enquireSpinner" role="status"></span>
-          <span>Enquire Now</span>
-        </button>
-        <p class="form-success" id="enquireSuccess">Submitted successfully!</p>
-      </form>
-    </div>
-  </div>
+    <!-- Bootstrap & intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-  <script src="/templates/template1/script1.js"></script>
-</body>
+    <!-- Your page logic -->
+    <script src="/templates/template1/script1.js"></script>
+  </body>
 </html>

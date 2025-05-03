@@ -1,9 +1,29 @@
 {
-  "title": "Zyra Vista",
   "template": "template1",
-  "heading": "Jumeriah Garden City",
-  "subheading": "Luxury Unleashed, The Dubai Experience from AED 999,000*",
-  "image": "media/101/project.jpg",
-  "brochure": "media/101/brochure.pdf",
-  "description": "Zyra Vista is a Signature residential development by Lardix Developers. Setting new standards in luxury and functionality. Nestled in AL-Warsan, Dubai. This exceptional project combines sophisticated design, premium amenities and smart living solutions to offer an unmatched lifestyle. Built on a foundation of trust, excellence and innovation. Zyra Vista is where your dream home becomes reality."
+  "title": "Zyra Vista",
+  "subheading": "A Signature residential development by Lardix Developers",
+  "description": "Zyra Vista rises in the heart of Al Warsan with modern layouts, panoramic podium views and resort-style facilities. Choose from spacious 1 & 2-bed units, relax by the sun-lit infinity pool or work from the breezy co-working lounge – all 15 minutes from Downtown Dubai.",
+  "video": "video.mp4",
+  "image": "logo.png",
+
+  "gallery": ["1.jpg","2.jpg","3.jpg","4.jpg","5.png"],
+
+  "unit_types": [
+    { "title": "1 Bed Apartment",
+      "description": "From AED 999 000 – 650-750 sq ft",
+      "image": "1bed.jpg" },
+    { "title": "2 Bed Apartment",
+      "description": "From AED 1.4 M – 1 200-1 300 sq ft",
+      "image": "2bed.jpg" }
+  ],
+
+  "amenities": ["Swimming Pool","Kids Play Area","Security","Pet Garden"],
+
+  "location": { "lat": 25.2048, "lng": 55.2708 },
+
+  "documents": {
+    "brochure":  "brochure.pdf",
+    "paymentplan": "paymentplan.pdf",
+    "factsheet": "factsheet.pdf"
+  }
 }

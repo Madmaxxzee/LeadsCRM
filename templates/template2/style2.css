@@ -79,10 +79,9 @@ h1, h2, h3, h4, h5 {
 
 /* Gallery */
 #galleryGrid {
-  display: flex;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
   gap: 1rem;
-  scroll-behavior: smooth;
 }
 
 #galleryGrid img {
